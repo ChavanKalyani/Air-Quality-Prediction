@@ -11,21 +11,22 @@ def analyze_live_data():
     df["Datetime"] = pd.to_datetime(df["Datetime"])
 
     print("\n==============================")
-    print("📌 SUMMARY OF LIVE PM2.5 DATA")
+    print(" SUMMARY OF LIVE PM2.5 DATA")
     print("==============================")
     print(df["PM2.5"].describe())
 
     print("\n==============================")
-    print("📌 HOURLY AVERAGE PM2.5")
+    print(" HOURLY AVERAGE PM2.5")
     print("==============================")
     df["hour"] = df["Datetime"].dt.hour
     print(df.groupby("hour")["PM2.5"].mean())
 
     print("\n==============================")
-    print("📌 DAILY AVERAGE PM2.5")
+    print(" DAILY AVERAGE PM2.5")
     print("==============================")
     df["date"] = df["Datetime"].dt.date
     print(df.groupby("date")["PM2.5"].mean())
 
 if __name__ == "__main__":
     analyze_live_data()
+
